@@ -10,7 +10,7 @@ import { DefaultPage } from '../DefaultPage';
 import './style.css'
 
 
-export const Main: react.FC = () => {
+export const AiGid: react.FC = () => {
    let navigate = useNavigate()
 
    let token = localStorage.getItem('token')

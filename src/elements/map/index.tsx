@@ -38,7 +38,7 @@ export const MyMap: React.FC<MapIE> = (props) =>{
     useEffect(()=>{
       setTimeout(()=> axios.get('https://api.mapbox.com/directions/v5/mapbox/walking/'+pathString+'?alternatives=true&continue_straight=true&geometries=geojson&language=en&overview=simplified&steps=true&access_token=pk.eyJ1IjoiZmlyZXNpZWh0IiwiYSI6ImNrdW9kemYzbTB4ZGkycHAxbXN2YnIzaGMifQ.G0fl-qVbecucfOvn8OtU4Q').then(
         (data:any) => setRoute(data.data.routes[0].geometry)
-      ).catch((err)=>console.log('ERRRRRRRR')), 1000)
+      ).catch((err)=>console.log('ERRRRRRRR')), 10000)
      
     })
     
@@ -96,17 +96,20 @@ export const MyMap: React.FC<MapIE> = (props) =>{
           'text-anchor': 'top'
         }
       };
+
+    
+    
       
     return (
-    <div style={{width:'100%'}}>
+    <div style={{width:'50%', height:'80vh', overflow:'hidden'}}>
         
 
         <Map initialViewState={{
             longitude: props.points[0].cords[0],
             latitude: props.points[0].cords[1],
-            zoom: 14
+            zoom: 11
         }}
-        style={{width: '100%', height: '40vh'}}
+        style={{width: '100%'}}
         mapStyle="mapbox://styles/mapbox/streets-v9"
         mapboxAccessToken='pk.eyJ1IjoiZmlyZXNpZWh0IiwiYSI6ImNrdW9kemYzbTB4ZGkycHAxbXN2YnIzaGMifQ.G0fl-qVbecucfOvn8OtU4Q'
         >
@@ -117,20 +120,22 @@ export const MyMap: React.FC<MapIE> = (props) =>{
         <Source id="my-data" type="geojson" data={geojson as any}>
           <Layer {...layerStyle as any} />
         </Source>
-        {
+
+
+        {/* {
           props.points.map((point, index)=>{
-            return  <Marker longitude={point.cords[0]} latitude={point.cords[1]} anchor="bottom" >
+            return  <Marker longitude={point.cords[1]} latitude={point.cords[0]}  >
             <img src="/pin.png" />
           </Marker>
           })
-        }
-        {
+        } */}
+        {/* {
           props.remapedPoints != undefined?  props.remapedPoints.map((point, index)=>{
             return  <Marker onClick={(e)=>console.log(e, 'click' + point.title)} longitude={point.cords[0]} latitude={point.cords[1]} anchor="bottom" >
             <img onClick={()=>'IMG IMG IMG'} src="/redpin.png" />
           </Marker>
           }) : null
-        }
+        } */}
       </Map>
     </div>
       

@@ -1,13 +1,11 @@
 import axios from "axios";
 
-
-// export const BASE_URL = 'https://0e06-92-100-146-65.ngrok-free.app/api/'
-export const BASE_URL = 'https://dev2.akarpov.ru/api/'
+export const BASE_URL = 'https://6117-178-67-194-234.ngrok-free.app/api/'
 
 export let backend = axios.create({
     baseURL: BASE_URL,
     timeout: 100000,
-    headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+    // headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
   }
 )
 

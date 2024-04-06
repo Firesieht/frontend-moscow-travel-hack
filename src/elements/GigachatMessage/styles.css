@@ -1,0 +1,78 @@
+.messageBox{
+    background: #FF4B26;
+    min-width: 20px;
+    max-width: 540px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 10px;
+    border-radius: 16px;
+    font-family: Intl;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15.6px;
+    letter-spacing: -0.4px;
+    text-align: left;
+    color: white !important;
+}
+
+.messageIconsWrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: right;
+    gap:8px;
+}
+
+.messageIcon{
+    cursor: pointer;
+    height: 16px;
+}
+
+.messageIcon:hover{
+    transition: 0.3s;
+    transform: scale(1.1);
+}
+
+.likeDislikeWrapper{
+    display: flex;
+    flex-direction: row;
+    gap:4px;
+}
+
+.messageCard{
+    display: flex;
+    /* width: 100%; */
+    align-items: end;
+    justify-content: start;
+    gap:10px;
+    /* flex-direction: column; */
+    
+}
+
+.messageDate{
+    font-weight: 300;
+    color:#1D1D1D;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.corner{
+    position: relative;
+    left:-4px;
+    bottom: 16px;
+    height: 16px;
+}
+
+.messageContent{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+}
+
+span{
+    color:white !important
+}

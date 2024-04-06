@@ -1,0 +1,39 @@
+.searchInputWrapper{
+    display: flex;
+    flex-direction: row;
+    gap:16px;
+    width: 100%;
+}
+
+.searchInput{
+    width: Fill (484px)px;
+    height: 48px;
+    padding: 6px 16px 6px 16px;
+    gap: 8px;
+    border-radius: 8px ;
+    border: solid 1px #747474;
+    opacity: 0px;
+    outline: none;
+    font-family: Intl;
+    font-weight: 300;
+    width: 100%;
+}
+
+.searchButton{
+    height: 48px;
+    padding: 16px;
+    border-radius: 8px;
+    background: #FFC300;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:8px;
+    font-family: Intl;
+    font-weight: 500;
+}
+
+.searchButton:hover{
+    transition: 0.3s;
+    border: none;
+    transform: scale(1.05);
+}
