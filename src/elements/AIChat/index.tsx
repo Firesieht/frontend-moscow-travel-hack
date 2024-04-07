@@ -136,7 +136,16 @@ export const AIChat:React.FC = () =>{
         setTimeout(()=>window.location.replace('https://russpass.ru/my/tickets?category=ALL&status=RELEVANT'), 1000 )
     }
     
-    console.log('CREATE ROUTE',  chatData
+    console.log('CREATE ROUTE',  chatData?.places_info == undefined ||  chatData?.places_info.length == 0? [{cords:[37.6156, 55.7522], title:'Москва', description:'Москва'}]
+    :
+    chatData?.places_info[activeDay].places.map((value, index)=>{
+        return {
+            cords: [ value.long, value.lat] as number[],
+        title: value.header,
+        description: value.header,
+    }
+
+    })
     )
 
     return <div className="mainAiChatWrapper">
