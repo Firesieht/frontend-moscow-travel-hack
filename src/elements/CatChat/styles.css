@@ -103,3 +103,21 @@
     transition: 0.3s;
 }
 
+
+.pulse {
+    border-radius: 50%;
+    
+    animation: pulse-animation 2s infinite;
+  }
+  
+@keyframes pulse-animation {
+    0% {
+      box-shadow: 0 0 0 0px rgba(255, 207, 8, 0.2);
+      box-shadow: 0 0 0 0px rgba(255, 207, 8, 0.2);
+    }
+    100% {
+    box-shadow: 0 0 0 10px rgba(255, 207, 8, 0);
+      box-shadow: 0 0 0 20px rgba(255, 207, 8, 0);
+    }
+  }
+  

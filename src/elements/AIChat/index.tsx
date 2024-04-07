@@ -1,7 +1,7 @@
 import { App, Spin } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { backend } from "../../consts";
+import { backend, BASE_URL } from "../../consts";
 import { AIChatIE, MessageIE } from "../../types";
 import { Button } from "../Button";
 import { ClientMessage } from "../ClientMessage";
@@ -24,7 +24,8 @@ export const AIChat:React.FC = () =>{
     const { message, notification, modal } = App.useApp();
 
     useEffect(()=>{
-    
+        
+        
        if (!queried.current) {
           queried.current = true;
           backend.get('conversation/' + chatID?.toString() + '/').then((data) => {
@@ -33,6 +34,8 @@ export const AIChat:React.FC = () =>{
             if (data.data.places_info.length > 0){
                 setActiveEvent(data.data.places_info[activeDay].places[0].header as string)
             }
+            
+
                let flag = true
                 let reversed = data.data.messages.reverse()
                 let l_msg = reversed.map((value:any, index:number)=>{
@@ -57,6 +60,8 @@ export const AIChat:React.FC = () =>{
                     l_msg_reversed
                 )
           })
+          
+
        }
 
        chatData?.places_info?.forEach((day, index)=>{
@@ -72,11 +77,9 @@ export const AIChat:React.FC = () =>{
 
     const onSendMessage = (msg:string) =>{
         let now = new Date()
-
         setMessages([...messages, <ClientMessage text={msg} date={now.getHours().toString()+":"+now.getMinutes()} />] as any)
 
-        
-
+    
         backend.post('/conversation/create_message',{
             content: msg,
             conversation_id: chatID
@@ -188,9 +191,10 @@ export const AIChat:React.FC = () =>{
                         <div className="cardMapTextWrapper">
                             {activeEvent}
                             <img src='/icons/text.svg'></img>
+                            <Button className="buyEventBtn" onClick={()=>onBuyEventClick(activeEvent)} >Купить</Button>
+
                         </div>
                 </div>
-                <Button className="buyEventBtn" onClick={()=>onBuyEventClick(activeEvent)} >Купить</Button>
             </div>
             {
                 chatData == undefined? <Spin></Spin> : <MyMap

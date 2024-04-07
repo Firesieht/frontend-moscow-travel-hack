@@ -52,7 +52,7 @@ export const Main: react.FC = () => {
          <div>
             Спланируйте идеальное <br/>
             путешествие с RUSSPASS <br/>
-            <span className='YellowText'>Россия <img src='/icons/yArrow.svg'></img></span>
+            <span className='YellowText'>Москва <img src='/icons/yArrow.svg'></img></span>
          </div>
          <div className='searchFieldUnderWrapper'>
             <div className='searchMainWrapperHeader'>RUSSPASS - подскажет всё.</div>
