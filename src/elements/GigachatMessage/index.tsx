@@ -4,6 +4,7 @@ import './styles.css'
 import { App } from 'antd';
 import { BASE_URL } from "../../consts"; 
 import { Button } from "../Button";
+import {TelegramShareButton} from "react-share";
 
 export const GigachatMessage:React.FC<GigachatMessageIE> = (props) =>{
     const { message, notification, modal } = App.useApp();
@@ -16,7 +17,7 @@ export const GigachatMessage:React.FC<GigachatMessageIE> = (props) =>{
 
     }
 
-    const onShare = () =>{
+    const onShareClick = () =>{
 
     }
 
@@ -28,8 +29,13 @@ export const GigachatMessage:React.FC<GigachatMessageIE> = (props) =>{
 
     const onCopy = () =>{
         message.info('Сообщение скопировано!')
-        navigator.clipboard.writeText(props.text)
+        try{
+            navigator.clipboard.writeText(props.text)
+        } catch{
+            message.error('Для копирования нужен HTTPS')
+        }
     }
+
 
     return <div className='messageContent' ref={props.ref}>
             <img src='/icons/corner.svg' className="corner"></img>
@@ -47,7 +53,13 @@ export const GigachatMessage:React.FC<GigachatMessageIE> = (props) =>{
                             <Button onClick={()=>onAddToPlanerClick()} className="addToPlanerBtn">Добавить в планировщик</Button>
                             :<></>}
                             <img className="messageIcon" onClick={()=>onCopy()} src='/icons/copy.svg'></img>
-                            <img className="messageIcon" onClick={()=>onShare()} src='/icons/share.svg'></img>
+                            <TelegramShareButton
+                                url={"|"+props.text.toString()}
+                                title={'RUSSPASS AI чат гид'}
+                                className="Demo__some-network__share-button"
+                            >
+                                <img className="messageIcon" onClick={()=>onShareClick()} src='/icons/share.svg'></img>
+                            </TelegramShareButton>
                             <div className="likeDislikeWrapper">
                                 <img className="messageIcon" onClick={()=>onLike()} src='/icons/like.svg'></img>
                                 <img className="messageIcon" onClick={()=>onDislike()} src='/icons/dislike.svg'></img>

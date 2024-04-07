@@ -42,7 +42,7 @@ export const CatChat:React.FC = () =>{
                     </div>
                     <div>
                         Привет!<br/><br/>
-                        Я RUSSPASS, ваш личный помощник в путешествиях. <br/>
+                        Я RUSS, ваш личный помощник в путешествиях. <br/>
                         Я могу предложить вам персонализированный маршрут, а также заняться решением ваших вопросов о путешествиях. <br/><br/>
                         Просто скажите мне, куда вы хотите отправиться и сколько времени у вас есть, и я подготовлю для вас идеальный план. 
                     </div>
@@ -54,7 +54,7 @@ export const CatChat:React.FC = () =>{
                     </div>
             </div>
             :
-            <img className='openChatBtn' onClick={()=>setOpened(true)} src='/icons/chatCat.svg'/>
+            <img className='openChatBtn pulse' onClick={()=>setOpened(true)} src='/icons/chatCat.svg'/>
             
         }
     </div>

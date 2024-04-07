@@ -167,7 +167,9 @@
     width: 100%;
     height: 48px;
     padding: 8px;
+    font-size: 16px;
     border-radius: 16px;
+    font-weight: 300;
     background-color:#FFCF08;
     margin-top: 8px;
 }
