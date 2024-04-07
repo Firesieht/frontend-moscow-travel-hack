@@ -14,7 +14,7 @@ export const RusPassHeader:React.FC = () =>{
                 </div>
                 <div className="iconWrapper">
                     <img className="headerIcon delete600" onClick={()=>navigate('/')} src='/language.svg'></img>
-                    <img className="headerIcon" src='/aiGid.svg' onClick={()=>navigate('/chat/6')}></img>
+                    <img className="headerIcon" src='/aiGid.svg' onClick={()=>navigate('/chat/69')}></img>
                     <img className="headerIcon" src='/favorites.svg' onClick={()=>navigate('/')}></img>
                     <img className="headerIcon" src='/profile.svg'onClick={()=>navigate('/')} ></img>
                     <img className="headerIcon" src='/rusLang.svg'onClick={()=>navigate('/')} ></img>
