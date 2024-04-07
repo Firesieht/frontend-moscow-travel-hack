@@ -1,5 +1,5 @@
 .messageBox{
-    background: #FF4B26;
+    background: #FFF5CC;
     min-width: 20px;
     max-width: 540px;
     padding: 16px;
@@ -11,11 +11,11 @@
     border-radius: 16px;
     font-family: Intl;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 300;
     line-height: 15.6px;
     letter-spacing: -0.4px;
     text-align: left;
-    color: white !important;
+    color:#1D1D1D
 }
 
 .messageIconsWrapper{
@@ -72,7 +72,25 @@
     justify-content: flex-start;
     flex-direction: column-reverse;
 }
+.messageImage{
 
-span{
-    color:white !important
+}
+
+
+
+
+
+.addToPlanerBtn{
+    width: 100%;
+    padding: 4px;
+    font-size: 14px;
+    font-weight: 300;
+    height: 24px;
+    border-radius: 8px;
+    background-color:#FFCF08;
+}
+
+.addToPlanerBtn:hover{
+    opacity: 1;
+    transform: scale(1.01);
 }

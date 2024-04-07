@@ -10,13 +10,15 @@ export const RusPassHeader:React.FC = () =>{
                 <div className="iconWrapper">
                     <img className="headerIcon" src='/logo.svg' onClick={()=>navigate('/')}></img>
                     <img className="headerIcon delete600" src='/menu.svg' onClick={()=>navigate('/')}></img>
-                    <img className="headerIcon delete600" src='/bonus.svg' onClick={()=>navigate('/event-match')}></img>
-                    <img className="headerIcon delete600" src='/search.svg' onClick={()=>navigate('/')}></img>
+                    <img className="headerIcon delete600" src='/bonus.svg' onClick={()=>navigate('/')}></img>
                 </div>
                 <div className="iconWrapper">
-                    <img className="headerIcon delete600" onClick={()=>navigate('/buyed')} src='/language.svg'></img>
-                    <img className="headerIcon" src='/favorites.svg' onClick={()=>navigate('/favorites')}></img>
-                    <img className="headerIcon" src='/profile.svg'onClick={()=>navigate('/login')} ></img>
+                    <img className="headerIcon delete600" onClick={()=>navigate('/')} src='/language.svg'></img>
+                    <img className="headerIcon" src='/aiGid.svg' onClick={()=>navigate('/chat/6')}></img>
+                    <img className="headerIcon" src='/favorites.svg' onClick={()=>navigate('/')}></img>
+                    <img className="headerIcon" src='/profile.svg'onClick={()=>navigate('/')} ></img>
+                    <img className="headerIcon" src='/rusLang.svg'onClick={()=>navigate('/')} ></img>
+
                 </div>
             </div>
         </div>

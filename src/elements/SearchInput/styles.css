@@ -3,6 +3,7 @@
     flex-direction: row;
     gap:16px;
     width: 100%;
+    padding: 0px 16px;
 }
 
 .searchInput{
@@ -23,17 +24,62 @@
     height: 48px;
     padding: 16px;
     border-radius: 8px;
-    background: #FFC300;
+    background: #FFCF08;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap:8px;
     font-family: Intl;
     font-weight: 500;
+    color:#1D1D1D !important
+}
+
+.searchButton > span{
+    color:#1D1D1D !important
 }
 
 .searchButton:hover{
     transition: 0.3s;
     border: none;
     transform: scale(1.05);
+}
+
+.HintsWrapper{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap:8px;
+    padding: 0px 8px;
+}
+
+.hintBox{
+    font-family: Intl;
+    font-size: 13px;
+    line-height: 13px;
+    padding: 8px;
+    border-radius: 16px;
+    color:#747474;
+    border: 1px solid #747474;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    
+
+}
+
+.searchWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+
+}
+.HintsWrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto&display=swap');
+
 .mainCard{
     background-color: #FFFBF3;
     width: calc(100%-100px);
@@ -8,6 +10,28 @@
     border-radius: 48px;
     padding: 50px;
     width: calc(100% - 200px);
+}
+
+.banner{
+    margin-top: -50px;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;;
+    padding: 110px 90px;
+    color:#FFFFFF;
+    font-weight: 700;
+    font-size: 64px;
+    width: 100%;
+    gap:50px;
+    line-height: 70.4px;
+    letter-spacing: -3px;
+    background-image: url('../../../public/banner.png');
+}
+
+.YellowText{
+    color:#FFC300;
+    border-bottom: 3px #FFC300 dashed;
 }
 
 .mainCard>h2{
@@ -155,6 +179,127 @@
 
     color: #FFFFFF;
 
+}
+
+
+.searchFieldWrapper{
+    display: flex;
+    flex-direction: row;
+    gap:12px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 20px;
+    padding:16px;
+    background-color: #F5F5F5;
+}
+
+.inputSearchField{
+    height: 48px;
+    width: 80%;
+    border-radius: 8px;
+}
+
+.btnSearchField{
+    width: 20%;
+    font-family: Intl;
+    font-weight: 600;
+    background:#FFCF08;
+    font-size: 16px;
+    line-height: 18px;
+    color:#1D1D1D
+}
+
+.searchCards{
+    width: 100%;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    gap:24px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+.searchCard{
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 24px;
+    background: #F5F5F5;
+    width: 250px;
+    height: 300px;
+    border-radius: 16px;
+    font-family: Intl;
+    font-weight: 300;
+}
+
+.searchHeader{
+    font-size: 24px;
+    font-weight: 500;
+}
+.searchCity{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.searchType{
+    font-weight: 500;
+}
+.searchCardsHeader{
+    font-family: Intl;
+    font-size: 32px;
+    font-weight: 600;
+
+}
+.searchMainWrapper{
+    width: 100%;
+    padding: 50px;
+}
+.searchFieldUnderWrapper{
+    height: 140px;
+    background: #1D1D1D;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;    
+    width: 70%;
+    align-self: center;
+}
+
+.searchMainWrapperHeader{
+    color:#FFC300;
+    font-size: 24px;
+    font-family: Intl;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    line-height: 36px;
+    letter-spacing: 0px;
+}
+
+.searchCardsHeader{
+
+}
+
+.searchCardImage{
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    transition: 0.3s;
+}
+.searchCardImage:hover{
+    transform: scale(1.01);
+
+}
+
+
+.searchAutoComplete{
+    width: 80%;
 }
 
 @media screen and (max-device-width: 700px) {

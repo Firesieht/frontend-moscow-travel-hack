@@ -1,6 +1,6 @@
 // import {  Spin, TabsProps, Tabs } from 'antd';
 import react, { useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { backend, updateBackend } from '../../consts';
 import { AIChat } from '../../elements/AIChat';
 import { ClientMessage } from '../../elements/ClientMessage';
@@ -9,8 +9,19 @@ import { RusPassHeader } from '../../elements/Header';
 import { DefaultPage } from '../DefaultPage';
 import './style.css'
 
+export const ActiveEventContext = react.createContext('');
+
+const ActiveEventProvider = ({ children }:any) => {
+   const [activeEvent, setActiveEvent] = react.useState('');
+   const contextValue = react.useMemo(() => ({ activeEvent, setActiveEvent }), [activeEvent]);
+
+   return <ActiveEventContext.Provider value={contextValue as any}>{children}</ActiveEventContext.Provider>;
+};
 
 export const AiGid: react.FC = () => {
+
+
+  
    let navigate = useNavigate()
 
    let token = localStorage.getItem('token')
@@ -35,9 +46,7 @@ export const AiGid: react.FC = () => {
          })
       }
 
-      if (null == localStorage.getItem('token')){
-         navigate('/login')
-      }
+     
 
      
    })
@@ -52,7 +61,11 @@ export const AiGid: react.FC = () => {
 
 
    <ClientMessage date='17:03' text='Конечно, Иди НАХРЕН!'/> */}
-
-   <AIChat></AIChat>
+   <ActiveEventProvider>
+      
+         <Outlet></Outlet>
+        <AIChat></AIChat>
+      
+   </ActiveEventProvider>
    </div>
 }

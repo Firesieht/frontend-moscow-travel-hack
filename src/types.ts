@@ -4,6 +4,9 @@ export interface GigachatMessageIE{
     text: string,
     date: string,
     ref?:any,
+    image?:string,
+    addToPlaner?:boolean
+
 }
 
 export interface ClientMessageIE{
@@ -37,5 +40,6 @@ export interface AIChatIE{
     created:string,
     messages: MessageIE[]
     places_info?: PlaceInfoIE[]
+    image?:string
 
 }

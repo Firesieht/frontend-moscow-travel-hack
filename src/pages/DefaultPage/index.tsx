@@ -14,14 +14,9 @@ export const DefaultPage:React.FC<DefaultPageIE> = (props) =>{
     return  <div className='mainWrapper'>
          {props.header == false? <></>:<RusPassHeader></RusPassHeader>}
 
-            {
-                props.whiteCard == false? 
+            
                     <Outlet></Outlet>
-                    :
-                    <div className='mainCard'>
-                        <Outlet/>            
-                    </div>
-            }
+                    
            
             {
                 props.footer == false? <></>:

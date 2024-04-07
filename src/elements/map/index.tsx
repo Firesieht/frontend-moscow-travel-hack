@@ -9,6 +9,8 @@ import { backend } from "../../consts";
 configureRootTheme({ theme })
 
 export interface MapIE{
+  routeCreate?:boolean,
+
   points: {
     cords:number[],
     title:string,
@@ -36,11 +38,13 @@ export const MyMap: React.FC<MapIE> = (props) =>{
 
 
     useEffect(()=>{
-      setTimeout(()=> axios.get('https://api.mapbox.com/directions/v5/mapbox/walking/'+pathString+'?alternatives=true&continue_straight=true&geometries=geojson&language=en&overview=simplified&steps=true&access_token=pk.eyJ1IjoiZmlyZXNpZWh0IiwiYSI6ImNrdW9kemYzbTB4ZGkycHAxbXN2YnIzaGMifQ.G0fl-qVbecucfOvn8OtU4Q').then(
-        (data:any) => setRoute(data.data.routes[0].geometry)
-      ).catch((err)=>console.log('ERRRRRRRR')), 10000)
-     
+      if (props.routeCreate != false){
+          setTimeout(()=> axios.get('https://api.mapbox.com/directions/v5/mapbox/walking/'+pathString+'?alternatives=true&continue_straight=true&geometries=geojson&language=en&overview=simplified&steps=true&access_token=pk.eyJ1IjoiZmlyZXNpZWh0IiwiYSI6ImNrdW9kemYzbTB4ZGkycHAxbXN2YnIzaGMifQ.G0fl-qVbecucfOvn8OtU4Q').then(
+            (data:any) => setRoute(data.data.routes[0].geometry)
+          ).catch((err)=>console.log('ERRRRRRRR')), 10000)
+      }
     })
+      
     
 
 
@@ -97,20 +101,34 @@ export const MyMap: React.FC<MapIE> = (props) =>{
         }
       };
 
+    const CircleLayer = {
+      id: 'circle-layer',
+      type: 'circle',
+      source: 'national-park',
+      paint: {
+        'circle-radius': 8,
+        'circle-color': '#FFC300'
+  }
+    }
+
     
     
       
     return (
-    <div style={{width:'50%', height:'80vh', overflow:'hidden'}}>
+    <div style={{width:'100%', height:'80vh', overflow:'hidden'}}>
         
 
-        <Map initialViewState={{
+        <Map initialViewState={props.points.length == 1? {
             longitude: props.points[0].cords[0],
             latitude: props.points[0].cords[1],
             zoom: 11
-        }}
+        }:{
+          longitude: props.points[1].cords[0],
+          latitude: props.points[1].cords[1],
+          zoom: 11
+      }}
         style={{width: '100%'}}
-        mapStyle="mapbox://styles/mapbox/streets-v9"
+        mapStyle="mapbox://styles/mapbox/light-v11"
         mapboxAccessToken='pk.eyJ1IjoiZmlyZXNpZWh0IiwiYSI6ImNrdW9kemYzbTB4ZGkycHAxbXN2YnIzaGMifQ.G0fl-qVbecucfOvn8OtU4Q'
         >
 
@@ -119,6 +137,7 @@ export const MyMap: React.FC<MapIE> = (props) =>{
         </Source>
         <Source id="my-data" type="geojson" data={geojson as any}>
           <Layer {...layerStyle as any} />
+          <Layer {...CircleLayer as any}></Layer>
         </Source>
 
 
